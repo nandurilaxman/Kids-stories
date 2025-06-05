@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>తెలుగు బాలల కథలు</title>
+  <title>Ammulu papa ki kathalu</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
@@ -13,7 +13,8 @@
       touch-action: manipulation;
     }
     .story-element {
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, color 0.3s ease;
+      cursor: pointer;
     }
     .story-element:hover {
       transform: scale(1.1);
@@ -27,6 +28,13 @@
     }
     .story-card:hover {
       background-color: #f0f0f0;
+    }
+    .action-text {
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;700&display=swap" rel="stylesheet">
@@ -97,14 +105,14 @@
             మరియు <span id="parrot" class="story-element text-green-600 font-bold cursor-pointer">చిలుక</span> సంతోషంగా ఉన్నాయి. 
             వాటిని తాకి ఏం జరుగుతుందో చూడండి!`,
             actions: [
-              { id: 'rabbit-action', text: 'కుందేలు గెంతుతుంది!', img: 'assets/images/rabbit.png', sound: 'assets/sounds/hop.mp3' },
-              { id: 'parrot-action', text: 'చిలుక పాట పాడుతుంది!', img: 'assets/images/parrot.png', sound: 'assets/sounds/chirp.mp3' }
+              { id: 'rabbit-action', text: 'కుందేలు గెంతుతుంది!', color: 'pink-600' },
+              { id: 'parrot-action', text: 'చిలుక పాట పాడుతుంది!', color: 'green-600' }
             ]
           },
           {
-            text: `కుందేలు మరియు చిలుక అడవిలో ఒక మెరిసే <span id="star" class="story-element text-yellow-600 font-bold cursor-pointer">నక్షత్రం</span> చూశాయి! 
-            నక్షత్రాన్ని తాకి మెరుపును చూడండి!`,
-            actions: [{ id: 'star-action', text: 'నక్షత్రం బాగా మెరుస్తుంది!', img: 'assets/images/star.png', sound: 'assets/sounds/sparkle.mp3' }]
+            text: `కుందేలు మరియు చిలుక ఒక మెరిసే <span id="star" class="story-element text-yellow-600 font-bold cursor-pointer">నక్షత్రం</span> చూశాయి! 
+            నక్షత్రాన్ని తాకండి!`,
+            actions: [{ id: 'star-action', text: 'నక్షత్రం బాగా మెరుస్తుంది!', color: 'yellow-600' }]
           },
           { text: `అడవి మెరిసింది, కుందేలు మరియు చిలుక సంతోషంగా నాట్యం చేశాయి! కథ ముగిసింది.` }
         ]
@@ -115,12 +123,12 @@
           {
             text: `తెనాలి రామ ఒక రాజు దగ్గర పనిచేసేవాడు. రాజు <span id="crown" class="story-element text-yellow-600 font-bold cursor-pointer">కిరీటం</span> 
             పోయిందని చింతించాడు. దాన్ని తాకండి!`,
-            actions: [{ id: 'crown-action', text: 'కిరీటం మెరుస్తుంది!', img: 'assets/images/crown.png', sound: 'assets/sounds/sparkle.mp3' }]
+            actions: [{ id: 'crown-action', text: 'కిరీటం మెరుస్తుంది!', color: 'yellow-600' }]
           },
           {
             text: `తెనాలి రామ తెలివిగా ఒక <span id="box" class="story-element text-brown-600 font-bold cursor-pointer">పెట్టె</span>లో కిరీటం దొంగతనం చేసినవాడిని పట్టుకున్నాడు! 
             పెట్టెను తాకండి!`,
-            actions: [{ id: 'box-action', text: 'పెట్టె తెరుచుకుంది!', img: 'assets/images/box.png', sound: 'assets/sounds/click.mp3' }]
+            actions: [{ id: 'box-action', text: 'పెట్టె తెరుచుకుంది!', color: 'brown-600' }]
           },
           { text: `రాజు సంతోషించి తెనాలి రామను పొగడాడు. కథ ముగిసింది!` }
         ]
@@ -131,12 +139,12 @@
           {
             text: `ఒక చిన్న <span id="tree" class="story-element text-green-600 font-bold cursor-pointer">చెట్టు</span> అడవిలో ఒంటరిగా ఉంది. 
             దాన్ని తాకి ఏం జరుగుతుందో చూడండి!`,
-            actions: [{ id: 'tree-action', text: 'చెట్టు పెద్దగా పెరిగింది!', img: 'assets/images/tree.png', sound: 'assets/sounds/sparkle.mp3' }]
+            actions: [{ id: 'tree-action', text: 'చెట్టు పెద్దగా పెరిగింది!', color: 'green-600' }]
           },
           {
             text: `చెట్టు పెద్దగా పెరిగి, <span id="flowers" class="story-element text-pink-600 font-bold cursor-pointer">పుష్పాలు</span> వికసించాయి! 
             పుష్పాలను తాకండి!`,
-            actions: [{ id: 'flowers-action', text: 'పుష్పాలు అందంగా వికసించాయి!', img: 'assets/images/flowers.png', sound: 'assets/sounds/chirp.mp3' }]
+            actions: [{ id: 'flowers-action', text: 'పుష్పాలు అందంగా వికసించాయి!', color: 'pink-600' }]
           },
           { text: `అడవి అందంగా మారింది, చెట్టు సంతోషంగా నవ్వింది! కథ ముగిసింది.` }
         ]
@@ -147,12 +155,12 @@
           {
             text: `ఒక <span id="monkey" class="story-element text-brown-600 font-bold cursor-pointer">కోతి</span> చెట్టు మీద నవ్వుతూ ఆడుతోంది. 
             దాన్ని తాకండి!`,
-            actions: [{ id: 'monkey-action', text: 'కోతి సంతోషంగా నవ్వింది!', img: 'assets/images/monkey.png', sound: 'assets/sounds/laugh.mp3' }]
+            actions: [{ id: 'monkey-action', text: 'కోతి సంతోషంగా నవ్వింది!', color: 'brown-600' }]
           },
           {
             text: `కోతి ఒక రుచికరమైన <span id="fruit" class="story-element text-yellow-600 font-bold cursor-pointer">పండు</span>ను చూసింది. 
             పండును తాకండి!`,
-            actions: [{ id: 'fruit-action', text: 'పండు రుచిగా ఉంది!', img: 'assets/images/fruit.png', sound: 'assets/sounds/click.mp3' }]
+            actions: [{ id: 'fruit-action', text: 'పండు రుచిగా ఉంది!', color: 'yellow-600' }]
           },
           { text: `కోతి పండును స్నేహితులతో పంచుకుంది. అందరూ సంతోషించారు! కథ ముగిసింది.` }
         ]
@@ -163,12 +171,12 @@
           {
             text: `ఒక <span id="crow" class="story-element text-black-600 font-bold cursor-pointer">కాకి</span> రొట్టె ముక్కను పట్టుకుంది. 
             దాన్ని తాకండి!`,
-            actions: [{ id: 'crow-action', text: 'కాకి కిచకిచలాడింది!', img: 'assets/images/crow.png', sound: 'assets/sounds/chirp.mp3' }]
+            actions: [{ id: 'crow-action', text: 'కాకి కిచకిచలాడింది!', color: 'black-600' }]
           },
           {
             text: `ఒక <span id="fox" class="story-element text-red-600 font-bold cursor-pointer">నక్క</span> రొట్టెను చూసి ఆలోచించింది. 
             నక్కను తాకండి!`,
-            actions: [{ id: 'fox-action', text: 'నక్క తెలివిగా నవ్వింది!', img: 'assets/images/fox.png', sound: 'assets/sounds/laugh.mp3' }]
+            actions: [{ id: 'fox-action', text: 'నక్క తెలివిగా నవ్వింది!', color: 'red-600' }]
           },
           { text: `నక్క కాకిని మోసం చేసి రొట్టె తీసుకుంది. తెలివిగా ఉండాలని నేర్చుకుంది! కథ ముగిసింది.` }
         ]
@@ -179,12 +187,12 @@
           {
             text: `ఒక పెద్ద <span id="elephant" class="story-element text-gray-600 font-bold cursor-pointer">ఏనుగు</span> అడవిలో నడుస్తోంది. 
             దాన్ని తాకండి!`,
-            actions: [{ id: 'elephant-action', text: 'ఏనుగు బాకు నొక్కింది!', img: 'assets/images/elephant.png', sound: 'assets/sounds/click.mp3' }]
+            actions: [{ id: 'elephant-action', text: 'ఏనుగు బాకు నొక్కింది!', color: 'gray-600' }]
           },
           {
             text: `ఏనుగు ఒక <span id="river" class="story-element text-blue-600 font-bold cursor-pointer">నది</span> దగ్గరకు వచ్చింది. 
             నదిని తాకండి!`,
-            actions: [{ id: 'river-action', text: 'నది గలగల మన్నది!', img: 'assets/images/river.png', sound: 'assets/sounds/splash.mp3' }]
+            actions: [{ id: 'river-action', text: 'నది గలగల మన్నది!', color: 'blue-600' }]
           },
           { text: `ఏనుగు ఎలుకలను నది దాటించి రక్షించింది. దయ ముఖ్యమని తెలిసింది! కథ ముగిసింది.` }
         ]
@@ -195,12 +203,12 @@
           {
             text: `ఒక <span id="cat" class="story-element text-orange-600 font-bold cursor-pointer">పిల్లి</span> ఎలుకలను భయపెట్టింది. 
             దాన్ని తాకండి!`,
-            actions: [{ id: 'cat-action', text: 'పిల్లి మియావ్ అన్నది!', img: 'assets/images/cat.png', sound: 'assets/sounds/meow.mp3' }]
+            actions: [{ id: 'cat-action', text: 'పిల్లి మియావ్ అన్నది!', color: 'orange-600' }]
           },
           {
             text: `ఎలుకలు పిల్లికి ఒక <span id="bell" class="story-element text-yellow-600 font-bold cursor-pointer">గంట</span> కట్టాలని ఆలోచించాయి. 
             గంటను తాకండి!`,
-            actions: [{ id: 'bell-action', text: 'గంట గలగల మన్నది!', img: 'assets/images/bell.png', sound: 'assets/sounds/ring.mp3' }]
+            actions: [{ id: 'bell-action', text: 'గంట గలగల మన్నది!', color: 'yellow-600' }]
           },
           { text: `గంట వల్ల ఎలుకలు సురక్షితంగా ఉన్నాయి. ఆలోచన ముఖ్యమని తెలిసింది! కథ ముగిసింది.` }
         ]
@@ -211,12 +219,12 @@
           {
             text: `ఒక <span id="donkey" class="story-element text-brown-600 font-bold cursor-pointer">గాడిద</span> బరువు మోస్తోంది. 
             దాన్ని తాకండి!`,
-            actions: [{ id: 'donkey-action', text: 'గాడిద ఈయాంక్ అన్నది!', img: 'assets/images/donkey.png', sound: 'assets/sounds/bray.mp3' }]
+            actions: [{ id: 'donkey-action', text: 'గాడిద ఈయాంక్ అన్నది!', color: 'brown-600' }]
           },
           {
             text: `గాడిద ఒక <span id="horse" class="story-element text-black-600 font-bold cursor-pointer">గుర్రం</span>తో స్నేహం చేసింది. 
             గుర్రాన్ని తాకండి!`,
-            actions: [{ id: 'horse-action', text: 'గుర్రం సంతోషంగా నవ్వింది!', img: 'assets/images/horse.png', sound: 'assets/sounds/click.mp3' }]
+            actions: [{ id: 'horse-action', text: 'గుర్రం సంతోషంగా నవ్వింది!', color: 'black-600' }]
           },
           { text: `గాడిద, గుర్రం కలిసి స్నేహంగా పనిచేశాయి. స్నేహం గొప్పదని తెలిసింది! కథ ముగిసింది.` }
         ]
@@ -227,12 +235,12 @@
           {
             text: `తెనాలి రామ ఒక రుచికరమైన <span id="mango" class="story-element text-yellow-600 font-bold cursor-pointer">మామిడి</span> చూశాడు. 
             దాన్ని తాకండి!`,
-            actions: [{ id: 'mango-action', text: 'మామిడి రుచిగా ఉంది!', img: 'assets/images/mango.png', sound: 'assets/sounds/click.mp3' }]
+            actions: [{ id: 'mango-action', text: 'మామిడి రుచిగా ఉంది!', color: 'yellow-600' }]
           },
           {
             text: `తెనాలి ఒక <span id="box" class="story-element text-brown-600 font-bold cursor-pointer">పెట్టె</span>లో మామిడిని దాచాడు. 
             పెట్టెను తాకండి!`,
-            actions: [{ id: 'box-action', text: 'పెట్టె తెరుచుకుంది!', img: 'assets/images/box.png', sound: 'assets/sounds/click.mp3' }]
+            actions: [{ id: 'box-action', text: 'పెట్టె తెరుచుకుంది!', color: 'brown-600' }]
           },
           { text: `తెనాలి మామిడిని రాజుతో పంచుకున్నాడు. పంచుకోవడం గొప్పదని తెలిసింది! కథ ముగిసింది.` }
         ]
@@ -243,12 +251,12 @@
           {
             text: `ఒక <span id="snake" class="story-element text-green-600 font-bold cursor-pointer">పాము</span> అడవిలో దాక్కుంది. 
             దాన్ని తాకండి!`,
-            actions: [{ id: 'snake-action', text: 'పాము హిస్స్ అన్నది!', img: 'assets/images/snake.png', sound: 'assets/sounds/hiss.mp3' }]
+            actions: [{ id: 'snake-action', text: 'పాము హిస్స్ అన్నది!', color: 'green-600' }]
           },
           {
             text: `ఒక <span id="mongoose" class="story-element text-brown-600 font-bold cursor-pointer">ముంగిస</span> పామును చూసింది. 
             ముంగిసను తాకండి!`,
-            actions: [{ id: 'mongoose-action', text: 'ముంగిస ధైర్యంగా నిలిచింది!', img: 'assets/images/mongoose.png', sound: 'assets/sounds/click.mp3' }]
+            actions: [{ id: 'mongoose-action', text: 'ముంగిస ధైర్యంగా నిలిచింది!', color: 'brown-600' }]
           },
           { text: `ముంగిస పామును ఓడించి అడవిని కాపాడింది. ధైర్యం ముఖ్యమని తెలిసింది! కథ ముగిసింది.` }
         ]
@@ -284,16 +292,7 @@
         stage.actions.forEach(action => {
           actionContainer.innerHTML += `
             <div id="${action.id}" class="hidden mb-4">
-              <p class="text-lg text-${action.id.includes('rabbit') || action.id.includes('flowers') ? 'pink' : 
-                                  action.id.includes('parrot') || action.id.includes('tree') || action.id.includes('snake') ? 'green' : 
-                                  action.id.includes('star') || action.id.includes('crown') || action.id.includes('mango') || action.id.includes('fruit') || action.id.includes('bell') ? 'yellow' : 
-                                  action.id.includes('box') || action.id.includes('monkey') || action.id.includes('mongoose') || action.id.includes('donkey') ? 'brown' : 
-                                  action.id.includes('fox') ? 'red' : 
-                                  action.id.includes('crow') || action.id.includes('horse') ? 'black' : 
-                                  action.id.includes('elephant') ? 'gray' : 
-                                  action.id.includes('river') ? 'blue' : 
-                                  action.id.includes('cat') ? 'orange' : 'pink'}-600">${action.text}</p>
-              <img src="${action.img}" alt="${action.text}" class="mx-auto">
+              <p class="text-lg text-${action.color} font-bold action-text">${action.text}</p>
             </div>
           `;
         });
@@ -309,16 +308,12 @@
         const element = document.getElementById(action.id.replace('-action', ''));
         if (element) {
           element.addEventListener('click', () => {
-            document.getElementById(action.id).classList.toggle('hidden');
-            playSound(action.sound);
+            const actionDiv = document.getElementById(action.id);
+            actionDiv.classList.toggle('hidden');
+            element.classList.toggle('text-purple-600'); // Text animation: change color on click
           });
         }
       });
-    }
-
-    function playSound(src) {
-      const audio = new Audio(src);
-      audio.play();
     }
 
     Object.keys(stories).forEach(storyId => {
